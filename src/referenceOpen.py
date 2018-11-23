@@ -25,7 +25,8 @@ webList = ["https://blog.csdn.net/lunzi3775/article/details/80387173",
 "https://github.com/caemasar/ChapterGeneration",
 "https://blog.csdn.net/iiseeyou/article/details/80757715",
 "https://github.com/rg3/youtube-dl",
-"https://www.jianshu.com/p/8817a7b0c8d6"]
+"https://www.jianshu.com/p/8817a7b0c8d6",
+"http://www.yujzw.com/python/python-youtube-dl.html"]
 
 for web in webList:
     print(web)
