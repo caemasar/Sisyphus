@@ -1,5 +1,11 @@
 from pyquery import PyQuery as pq
 import urllib.request
+import os
+
+
+def GetDesktopPath():
+    return os.path.join(os.path.expanduser("~"), 'Desktop')
+
 
 movie_web = "https://www.dytt8.net/"
 
@@ -18,8 +24,9 @@ sourceInLine = care_movie_title_list_file.readlines()
 for line in sourceInLine:
     temp1 = line.strip('\n')
     temp1 = temp1.replace('-', '')
-    care_movie_title_list.append(temp1)
-    # print(care_movie_title_list)
+    if not temp1.startswith("#"):
+        care_movie_title_list.append(temp1)
+# print(care_movie_title_list)
 
 index_doc = pq(movie_web)
 movie_hrefs = index_doc(new_movie_class)
@@ -36,7 +43,13 @@ for href_index in movie_hrefs:
         new_movie_title = new_movie_title[start_index:end_index]
         new_movie_title_tamp = new_movie_title.split("/")
         new_movie_title_list += new_movie_title_tamp
-print(new_movie_title_list)
-tmp = [val for val in new_movie_title_list if val in care_movie_title_list]
+# print(new_movie_title_list)
+updated_movie = [val for val in new_movie_title_list if val in care_movie_title_list]
 
-print(tmp)
+print(updated_movie)
+
+if not len(updated_movie) < 1:
+    careResult = open(GetDesktopPath()+'/careResult.txt', 'w')
+    for updated_movie_index in updated_movie:
+        careResult.write(updated_movie_index)
+    careResult.close()
