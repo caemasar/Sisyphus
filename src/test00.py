@@ -5,7 +5,7 @@ def download(youtube_url):
     # 定义某些下载参数
     ydl_opts = {
         # outtmpl 格式化下载后的文件名，避免默认文件名太长无法保存
-        'outtmpl': '%(id)s%(ext)s'
+        #'outtmpl': '%(id)s%(ext)s'
     }
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
