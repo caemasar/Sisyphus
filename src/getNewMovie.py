@@ -1,5 +1,6 @@
 from pyquery import PyQuery as pq
-import urllib.request
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 import os
 
 
@@ -26,7 +27,7 @@ for line in sourceInLine:
     temp1 = temp1.replace('-', '')
     if not temp1.startswith("#"):
         care_movie_title_list.append(temp1)
-# print(care_movie_title_list)
+print(care_movie_title_list)
 
 index_doc = pq(movie_web)
 movie_hrefs = index_doc(new_movie_class)
@@ -35,16 +36,24 @@ for href_index in movie_hrefs:
     if new_movie_addr is not None:
         new_movie_addr = movie_web + new_movie_addr
         # print(new_movie_addr)
-        new_movie_title = pq(new_movie_addr).find("title").text()
-        # print(new_movie_title)
+        # TODO 设置超时和失败重读
+        new_movie_web = urlopen(new_movie_addr)
+        bsObj = BeautifulSoup(new_movie_web.read(), 'lxml')
+        new_movie_title = bsObj.title.text
+
+        # pq(new_movie_addr).find("title").text()
+        print(new_movie_title)
+        # print(type(new_movie_title))
         start_index = new_movie_title.find("《") + 1
         end_index = new_movie_title.find("》")
         # print(type(start_index))
         new_movie_title = new_movie_title[start_index:end_index]
         new_movie_title_tamp = new_movie_title.split("/")
+        print(new_movie_title_tamp)
         new_movie_title_list += new_movie_title_tamp
-# print(new_movie_title_list)
-updated_movie = [val for val in new_movie_title_list if val in care_movie_title_list]
+print(new_movie_title_list)
+updated_movie = [
+    val for val in new_movie_title_list if val in care_movie_title_list]
 
 print(updated_movie)
 
