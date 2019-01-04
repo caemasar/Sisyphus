@@ -11,6 +11,7 @@ def GetDesktopPath():
 
 # TODO 各个步骤需要分成函数
 # TODO 数据需要写到数据库里去
+# TODO redis 做已经更新不关注
 if __name__ == '__main__':
     re_try_time = 3
     reg_format_punctuation = "[\s+\.\!_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）:：]+"
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     fail_time = 0
 
     new_movie_class = ".co_content2 a"
-    care_movie_title_list_file_path = "../resource/careMovie"
+    care_movie_title_list_file_path = "../resource/careMovie.lis"
 
     new_movie_title_list = []
     care_movie_title_list = []
