@@ -22,11 +22,12 @@ release.properties
 demo-gen/src/main/resources/conf.xml
 
 # classes,lib,node_modules
-/educationWeb/src/main/webapp/WEB-INF/classes
-/educationWeb/src/main/webapp/WEB-INF/lib
-/educationWeb/src/main/webapp/node_modules
-/educationManageWeb/src/main/webapp/WEB-INF/classes
-/educationManageWeb/src/main/webapp/WEB-INF/lib
-/educationManageWeb/src/main/webapp/node_modules
+classes/
+lib/
+node_modules/
 overlays/
 .dubbo/
+
+#python
+__pycache__/
+log/
