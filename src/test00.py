@@ -12,4 +12,5 @@ def download(youtube_url):
         ydl.download([youtube_url])
 
 if __name__ == '__main__':
-    download('https://www.youtube.com/watch?v=pOmu0LtcI6Y')
+    #download('https://www.youtube.com/watch?v=pOmu0LtcI6Y')
+    download('https://twitter.com/zqw66/status/1087872332595585024')
