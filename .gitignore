@@ -14,6 +14,7 @@ release.properties
 .externalToolBuilders/
 .metadata
 
+# IDEA
 .settings/
 .idea/
 
