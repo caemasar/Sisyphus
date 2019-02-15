@@ -74,6 +74,7 @@ if __name__ == '__main__':
 
                 # pq(new_movie_addr).find("title").text()
                 printPro(new_movie_title)
+                printPro(new_movie_addr)
                 # printPro(type(new_movie_title))
                 start_index = new_movie_title.find("《") + 1
                 end_index = new_movie_title.find("》")
