@@ -1,3 +1,4 @@
+# logging 模块尝试
 # -*- coding:utf-8 -*-
 import logging
 
